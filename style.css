@@ -7,8 +7,19 @@
   --texto-suave: #a7b3aa;
   --verde: #b7f36b;
   --linha: rgba(241, 245, 238, 0.14);
+  --brilho: rgba(183, 243, 107, 0.08);
   --mono: 'DM Mono', monospace;
   --sans: 'Manrope', sans-serif;
+}
+
+[data-tema="claro"] {
+  --fundo: #f4f7ef;
+  --superficie: #e8eee1;
+  --texto: #172019;
+  --texto-suave: #536258;
+  --verde: #3e731b;
+  --linha: rgba(23, 32, 25, 0.16);
+  --brilho: rgba(62, 115, 27, 0.1);
 }
 
 * {
@@ -23,11 +34,25 @@ html {
 
 body {
   background:
-    radial-gradient(circle at 80% 10%, rgba(183, 243, 107, 0.08), transparent 25rem),
+    radial-gradient(circle at 80% 10%, var(--brilho), transparent 25rem),
     var(--fundo);
   color: var(--texto);
   font-family: var(--sans);
   line-height: 1.6;
+  transition: background 0.2s ease, color 0.2s ease;
+  animation: surgir 0.8s ease-out both;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .cabecalho {
@@ -58,10 +83,19 @@ body {
   text-decoration: none;
 }
 
+.rodape a {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
 .logo {
   font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .logo span,
@@ -75,12 +109,30 @@ body {
   font-family: var(--mono);
   font-size: 0.78rem;
   padding-bottom: 4px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.botao-tema {
+  background: transparent;
+  border: 1px solid var(--linha);
+  color: var(--texto);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 8px 11px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .link-github:hover,
+.botao-tema:hover {
+  border-color: var(--verde);
+  color: var(--verde);
+  transform: scale(1.05);
+}
+
 .rodape a:hover {
   color: var(--verde);
+  transform: scale(1.05);
 }
 
 .hero {
@@ -125,12 +177,13 @@ h1 span {
   margin-top: 42px;
   padding: 14px 18px;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .botao:hover {
   background: var(--verde);
   color: var(--fundo);
+  transform: scale(1.05);
 }
 
 .conteudo {
@@ -204,6 +257,14 @@ h2 em {
   .rodape {
     padding-left: 22px;
     padding-right: 22px;
+  }
+
+  .navegacao {
+    gap: 12px;
+  }
+
+  .botao-tema {
+    margin-left: auto;
   }
 
   .hero {
