@@ -40,6 +40,19 @@ body {
   font-family: var(--sans);
   line-height: 1.6;
   transition: background 0.2s ease, color 0.2s ease;
+  animation: surgir 0.8s ease-out both;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .cabecalho {
@@ -70,10 +83,19 @@ body {
   text-decoration: none;
 }
 
+.rodape a {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
 .logo {
   font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .logo span,
@@ -87,7 +109,7 @@ body {
   font-family: var(--mono);
   font-size: 0.78rem;
   padding-bottom: 4px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .botao-tema {
@@ -98,16 +120,19 @@ body {
   font-family: var(--mono);
   font-size: 0.72rem;
   padding: 8px 11px;
-}
-
-.botao-tema:hover {
-  border-color: var(--verde);
-  color: var(--verde);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .link-github:hover,
+.botao-tema:hover {
+  border-color: var(--verde);
+  color: var(--verde);
+  transform: scale(1.05);
+}
+
 .rodape a:hover {
   color: var(--verde);
+  transform: scale(1.05);
 }
 
 .hero {
@@ -152,12 +177,13 @@ h1 span {
   margin-top: 42px;
   padding: 14px 18px;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .botao:hover {
   background: var(--verde);
   color: var(--fundo);
+  transform: scale(1.05);
 }
 
 .conteudo {
