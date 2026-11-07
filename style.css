@@ -62,6 +62,7 @@ body {
 .navegacao,
 .hero,
 .conteudo,
+.projetos,
 .rodape {
   max-width: 1120px;
   margin: 0 auto;
@@ -195,6 +196,76 @@ h1 span {
   padding-top: 100px;
 }
 
+.projetos {
+  border-top: 1px solid var(--linha);
+  padding-bottom: 120px;
+  padding-top: 100px;
+}
+
+.projetos h2 {
+  margin-bottom: 45px;
+}
+
+.projetos-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.projeto-card {
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  display: flex;
+  flex-direction: column;
+  min-height: 235px;
+  padding: 24px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.projeto-card:hover {
+  border-color: var(--verde);
+  transform: translateY(-5px);
+}
+
+.projeto-numero {
+  color: var(--verde);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+
+.projeto-card h3 {
+  font-size: 1.15rem;
+  margin: 22px 0 10px;
+  overflow-wrap: anywhere;
+}
+
+.projeto-card p {
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.projeto-card a {
+  color: var(--verde);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  margin-top: auto;
+  padding-top: 25px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  transform-origin: left;
+}
+
+.projeto-card a:hover {
+  transform: scale(1.05);
+}
+
+.projetos-status {
+  color: var(--texto-suave);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
 h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
   letter-spacing: -0.06em;
@@ -254,6 +325,7 @@ h2 em {
   .navegacao,
   .hero,
   .conteudo,
+  .projetos,
   .rodape {
     padding-left: 22px;
     padding-right: 22px;
@@ -278,6 +350,15 @@ h2 em {
     grid-template-columns: 1fr;
     padding-bottom: 85px;
     padding-top: 75px;
+  }
+
+  .projetos {
+    padding-bottom: 85px;
+    padding-top: 75px;
+  }
+
+  .projetos-grid {
+    grid-template-columns: 1fr;
   }
 
   .rodape {
